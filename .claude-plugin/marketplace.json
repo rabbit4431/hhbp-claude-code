@@ -1,5 +1,5 @@
 {
-  "name": "hhbp",
+  "name": "hhbp-claude-code",
   "description": "Heshuo Harness Best Practices — DDD architecture standards and Java development skills for Maven multi-module projects",
   "version": "0.0.1",
   "owner": {
@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "hhbp",
+      "name": "hhbp-claude-code",
       "description": "Java development skills for DDD-based Maven microservices: API code generation and unused-class cleanup",
       "source": "./",
       "category": "development",
