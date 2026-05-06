@@ -1,0 +1,10 @@
+{
+  "name": "hhbp",
+  "version": "0.0.1",
+  "description": "Heshuo Harness Best Practices — DDD architecture standards and Java development skills for Maven multi-module projects",
+  "author": {
+    "name": "rabbit4431"
+  },
+  "repository": "https://github.com/rabbit4431/hhbp",
+  "keywords": ["java", "ddd", "maven", "spring-boot", "code-generation"]
+}

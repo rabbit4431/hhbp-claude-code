@@ -1,0 +1,20 @@
+{
+  "name": "hhbp",
+  "description": "Heshuo Harness Best Practices — DDD architecture standards and Java development skills for Maven multi-module projects",
+  "version": "0.0.1",
+  "owner": {
+    "name": "sunchao"
+  },
+  "plugins": [
+    {
+      "name": "hhbp",
+      "description": "Java development skills for DDD-based Maven microservices: API code generation and unused-class cleanup",
+      "source": "./",
+      "category": "development",
+      "tags": ["java", "ddd", "maven", "spring-boot", "code-generation"],
+      "skills": [
+        "./common/skills/"
+      ]
+    }
+  ]
+}
