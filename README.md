@@ -47,15 +47,11 @@ hhbp-claude-code/
         └── hooks.test.js       # Hook script test suite
 ```
 
-## Claude Code Plugin Installation Method
-
-**Prerequisites:** Node.js ≥ 18 and the Claude Code CLI.
+## Installation 
 
 ```
 /plugin marketplace add rabbit4431/hhbp-claude-code
-```
 
-```
 /plugin install hhbp-claude-code@hhbp-claude-code
 ```
 
