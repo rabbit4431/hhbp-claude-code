@@ -17,8 +17,8 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 ## Features
 
 - **5 session lifecycle hooks** — SessionStart, PreToolUse, PostToolUse, SessionEnd, and Stop events wired to purpose-built scripts
-- **6 domain skills** — `/generate-code`, `/generate-api`, `/sql-analyze`, `/slow-sql-optimize`, `/remove-unused-class`, `/security-review`
-- **5 specialized subagents** — planner, java-reviewer, java-build-resolver, security-reviewer, sql-performance-reviewer
+- **7 domain skills** — `/generate-code`, `/generate-api`, `/sql-analyze`, `/slow-sql-optimize`, `/remove-unused-class`, `/security-review`, `/docs-lookup`
+- **6 specialized subagents** — planner, java-reviewer, java-build-resolver, security-reviewer, sql-performance-reviewer, docs-lookup
 - **`/sessions` slash command** — browse, alias, and restore past Claude Code sessions
 - **MCP configuration** — pre-configured MCP server settings in `common/mcp-configs/`
 - **Development standards** — DDD architecture spec and backend development standards in `common/spec/`
