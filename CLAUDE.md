@@ -12,7 +12,7 @@ Shared content (agents, skills, spec, MCP configs, hook scripts) lives in the `c
 
 - **common/agents/** - Specialized subagents for delegation (planner, java-reviewer, etc.)
 - **common/skills/** - Workflow definitions and domain knowledge (code generation, security review, etc.)
-- **common/hooks/** - Hook scripts (block-dangerous, format-java, run-hook.cmd)
+- **common/hooks/** - Hook scripts (block-dangerous, run-hook.cmd)
 - **common/scripts/hooks/** - Session lifecycle scripts (session-start, session-end, git-workflow)
 - **common/mcp-configs/** - MCP server configurations
 - **hooks/hooks.json** - Claude Code hook registration (SessionStart/PreToolUse/PostToolUse/SessionEnd/Stop)

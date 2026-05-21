@@ -34,7 +34,7 @@ hhbp-claude-code/
 ├── common/                     # git submodule — hhbp-common (shared content)
 │   ├── agents/                 # Subagent definitions (planner, java-reviewer, security-reviewer, …)
 │   ├── skills/                 # Skill definitions (generate-code, generate-api, sql-analyze, …)
-│   ├── hooks/                  # Shell hook scripts (block-dangerous, format-java, run-hook.cmd)
+│   ├── hooks/                  # Shell hook scripts (block-dangerous, run-hook.cmd)
 │   ├── scripts/
 │   │   ├── hooks/              # Session lifecycle JS scripts (session-start, session-end, activity-tracker, …)
 │   │   └── lib/                # Shared utility library
@@ -61,7 +61,6 @@ hhbp-claude-code/
 |---|---|---|---|
 | SessionStart | `*` | `session-start-bootstrap.js` | Load previous context and detect package manager |
 | PreToolUse | `Bash` | `block-dangerous` | Block dangerous shell commands before execution |
-| PostToolUse | `Write\|Edit\|MultiEdit` | `format-java` | Auto-format modified Java files |
 | PostToolUse | `Write\|Edit\|MultiEdit` | `git-workflow.js` | Enforce commit timing and format rules |
 | PostToolUse | `*` | `session-activity-tracker.js` | Record per-tool activity metrics (async) |
 | SessionEnd | `*` | `session-end-marker.js` | Write session end marker (non-blocking, async) |
