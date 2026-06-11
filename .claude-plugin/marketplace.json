@@ -16,7 +16,8 @@
         "./common/skills/"
       ],
       "commands": "./common/commands/",
-      "hooks": "./common/hooks/hooks.json"
+      "hooks": "./common/hooks/hooks.json",
+      "mcpServers": "./common/mcp/mcp.json"
     }
   ]
 }
