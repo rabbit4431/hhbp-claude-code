@@ -6,5 +6,7 @@
     "name": "rabbit4431"
   },
   "repository": "https://github.com/rabbit4431/hhbp-claude-code",
-  "keywords": ["java", "ddd", "maven", "spring-boot", "code-generation"]
+  "keywords": ["java", "ddd", "maven", "spring-boot", "code-generation"],
+  "commands": "./common/commands/",
+  "hooks": "./common/hooks/hooks.json"
 }

@@ -14,7 +14,9 @@
       "tags": ["java", "ddd", "maven", "spring-boot", "code-generation"],
       "skills": [
         "./common/skills/"
-      ]
+      ],
+      "commands": "./common/commands/",
+      "hooks": "./common/hooks/hooks.json"
     }
   ]
 }
