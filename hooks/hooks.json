@@ -19,7 +19,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/common/hooks/block-dangerous.js\""
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/common/scripts/hooks/block-dangerous.js\""
           }
         ]
       }
