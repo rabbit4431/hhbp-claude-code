@@ -11,13 +11,7 @@
       "description": "Java development skills for DDD-based Maven microservices: API code generation and unused-class cleanup",
       "source": "./",
       "category": "development",
-      "tags": ["java", "ddd", "maven", "spring-boot", "code-generation"],
-      "skills": [
-        "./common/skills/"
-      ],
-      "commands": "./common/commands/",
-      "hooks": "./common/hooks/hooks.json",
-      "mcpServers": "./common/mcp/mcp.json"
+      "tags": ["java", "ddd", "maven", "spring-boot", "code-generation"]
     }
   ]
 }
