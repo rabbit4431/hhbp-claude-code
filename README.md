@@ -27,7 +27,7 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 ```
 hhbp-claude-code/
 ├── agents/                     # Subagent definitions (planner, java-reviewer, security-reviewer, …)
-└── common/                     # shared content (git submodule → hhbp-common)
+└── common/                     # shared content (vendored via git subtree from hhbp-common)
     ├── hooks/
     │   └── hooks.json          # Claude Code hook registrations (SessionStart / PreToolUse / PostToolUse / SessionEnd / Stop)
     ├── commands/
