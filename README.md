@@ -18,28 +18,32 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 - **7 domain skills** — `/generate-code`, `/generate-api`, `/sql-analyze`, `/slow-sql-optimize`, `/remove-unused-class`, `/security-review`, `/docs-lookup`
 - **6 specialized subagents** — planner, java-reviewer, java-build-resolver, security-reviewer, sql-performance-reviewer, docs-lookup
 - **`/sessions` slash command** — browse, alias, and restore past Claude Code sessions
-- **MCP configuration** — pre-configured MCP server settings in `mcp-configs/`
+- **3 LSP servers** — jdtls (Java), Pyright (Python), and typescript-language-server (TS/JS) for go-to-definition, find-references, hover, and diagnostics
+- **MCP configuration** — pre-configured MCP server settings in `common/mcp/`
 - **Development standards** — DDD architecture spec and backend development standards in `spec/`
 
 ## Directory Structure
 
 ```
-hhbp-common/
-├── hooks/
-│   └── hooks.json              # Claude Code hook registrations (SessionStart / PreToolUse / PostToolUse / SessionEnd / Stop)
-├── commands/
-│   └── sessions.md             # /sessions slash command definition
+hhbp-claude-code/
 ├── agents/                     # Subagent definitions (planner, java-reviewer, security-reviewer, …)
-├── skills/                     # Skill definitions (generate-code, generate-api, sql-analyze, …)
-├── scripts/
-│   ├── hooks/                  # Session lifecycle JS scripts (session-start, session-end, block-dangerous, activity-tracker, …)
-│   └── lib/                    # Shared utility library (package-manager, project-detect)
-├── mcp-configs/                # MCP server configuration (mcp.json)
-├── spec/                       # Architecture and coding standards docs
-├── schemas/                    # JSON schemas for validation
-└── tests/
-    └── hooks/
-        └── hooks.test.js       # Hook script test suite
+└── common/                     # shared content (git submodule → hhbp-common)
+    ├── hooks/
+    │   └── hooks.json          # Claude Code hook registrations (SessionStart / PreToolUse / PostToolUse / SessionEnd / Stop)
+    ├── commands/
+    │   └── sessions.md         # /sessions slash command definition
+    ├── skills/                 # Skill definitions (generate-code, generate-api, sql-analyze, …)
+    ├── scripts/
+    │   ├── hooks/              # Session lifecycle JS scripts (session-start, session-end, block-dangerous, activity-tracker, …)
+    │   └── lib/                # Shared utility library (package-manager, project-detect)
+    ├── mcp/
+    │   └── mcp.json            # MCP server configuration (context7)
+    ├── lsp/
+    │   └── lsp.json            # LSP server configuration (jdtls, pyright, typescript)
+    ├── spec/                   # Architecture and coding standards docs
+    └── tests/
+        └── hooks/
+            └── hooks.test.js   # Hook script test suite
 ```
 
 ## Installation
@@ -60,3 +64,20 @@ hhbp-common/
 | PostToolUse | `*` | `session-activity-tracker.js` | Record per-tool activity metrics (async) |
 | SessionEnd | `*` | `session-end-marker.js` | Write session end marker (non-blocking, async) |
 | Stop | `*` | `session-end.js` | Persist session state after each response |
+
+## LSP Reference
+
+Language servers give Claude real-time code intelligence (go-to-definition, find-references,
+hover, diagnostics) via the `LSP` tool. Configured in `common/lsp/lsp.json` and registered
+through the plugin manifest's `lspServers` field.
+
+| Server | Language(s) | Command | Install |
+|---|---|---|---|
+| `jdtls` | Java | `jdtls` | `brew install jdtls` (or [eclipse.jdt.ls](https://github.com/eclipse-jdtls/eclipse.jdt.ls)) |
+| `pyright` | Python | `pyright-langserver --stdio` | `npm i -g pyright` (or `pip install pyright`) |
+| `typescript` | TS / TSX / JS / JSX | `typescript-language-server --stdio` | `npm i -g typescript-language-server typescript` |
+
+> **Prerequisite:** the plugin only configures how Claude Code connects to a language
+> server — it does **not** bundle the binaries. Install the servers above yourself. A missing
+> binary shows as `Executable not found in $PATH` under the `/plugin` Errors tab; run
+> `/reload-plugins` after installing.
