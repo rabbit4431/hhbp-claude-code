@@ -54,6 +54,19 @@ hhbp-claude-code/
 /plugin install hhbp-claude-code@hhbp-claude-code
 ```
 
+## Updating common
+
+`common/` is vendored from [hhbp-common](https://github.com/rabbit4431/hhbp-common)
+via git subtree. To pull the latest shared content:
+
+```
+# one-time: register the upstream remote
+git remote add common https://github.com/rabbit4431/hhbp-common.git
+
+# pull the latest common content into the common/ subtree
+git subtree pull --prefix=common common main --squash
+```
+
 ## Hooks Reference
 
 | Event | Matcher | Script | Purpose |
