@@ -14,7 +14,10 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 ## Features
 
 - **2 safety hooks** — PreToolUse blocks dangerous shell commands; PostToolUse enforces git commit conventions
-- **7 domain skills** — `/generate-code`, `/generate-api`, `/sql-analyze`, `/slow-sql-optimize`, `/remove-unused-class`, `/security-review`, `/docs-lookup`
+- **21 skills**
+  - *Multi-service feature workflow* — `/springboot-feature-bootstrap` orchestrates the 9-phase chain: `/service-discovery`, `/feature-workspace-setup`, `/contract-first-design`, `/parallel-implementation`, `/multi-service-integration-test`, `/cross-service-review`, `/multi-branch-merge`, `/feature-cleanup`
+  - *Foundation* — `/test-driven-development`, `/writing-implementation-plan`, `/subagent-task-execution`, `/code-review-request`, `/finishing-a-feature-branch`, `/security-review`, `/docs-lookup`
+  - *Codegen & SQL* — `/generate-api`, `/generate-code`, `/remove-unused-class`, `/sql-analyze`, `/slow-sql-optimize`
 - **6 specialized subagents** — planner, java-reviewer, java-build-resolver, security-reviewer, sql-performance-reviewer, docs-lookup
 - **3 LSP servers** — jdtls (Java), Pyright (Python), and typescript-language-server (TS/JS) for go-to-definition, find-references, hover, and diagnostics
 - **MCP configuration** — pre-configured MCP server settings in `common/mcp/`
