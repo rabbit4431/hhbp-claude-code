@@ -59,6 +59,21 @@ git remote add common https://github.com/rabbit4431/hhbp-common.git
 git subtree pull --prefix=common common main --squash
 ```
 
+## Model tiers
+
+Each skill pins its model in `SKILL.md` frontmatter (`model:`), and Claude Code switches to it
+automatically while the skill is active — including at every phase transition of the
+`springboot-feature-bootstrap` workflow.
+
+| Tier | Model | Skills |
+|---|---|---|
+| design | `claude-opus-5-5` | service-discovery, contract-first-design, writing-implementation-plan, cross-service-review, code-review-request, security-review |
+| impl | `claude-sonnet-5-5` | generate-api, generate-code, test-driven-development, parallel-implementation, subagent-task-execution, multi-service-integration-test, remove-unused-class, springboot-feature-bootstrap, feature-workspace-setup, multi-branch-merge, finishing-a-feature-branch, feature-cleanup, docs-lookup |
+
+`sql-analyze` and `slow-sql-optimize` keep the session model. A skill's model override lasts for
+the rest of the turn, and is ignored (the session model stays) if your organization's
+`availableModels` allowlist excludes it. The subagents in `agents/` keep their own `model:` setting.
+
 ## Hooks Reference
 
 | Event | Matcher | Script | Purpose |
