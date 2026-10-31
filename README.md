@@ -1,5 +1,7 @@
 # hhbp-claude-code
 
+**English** · [Français](README.fr.md) · [Deutsch](README.de.md)
+
 Heshuo Harness Best Practices — Claude Code plugin providing DDD-standard hooks, agents, and skills for Java Maven microservices development.
 
 ## Overview
@@ -13,15 +15,16 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 
 ## Features
 
-- **2 safety hooks** — PreToolUse blocks dangerous shell commands; PostToolUse enforces git commit conventions
-- **21 skills**
+- **3 hooks** — SessionStart applies your chosen language; PreToolUse blocks dangerous shell commands; PostToolUse enforces git commit conventions
+- **22 skills**
   - *Multi-service feature workflow* — `/springboot-feature-bootstrap` orchestrates the 9-phase chain: `/service-discovery`, `/feature-workspace-setup`, `/contract-first-design`, `/parallel-implementation`, `/multi-service-integration-test`, `/cross-service-review`, `/multi-branch-merge`, `/feature-cleanup`
-  - *Foundation* — `/test-driven-development`, `/writing-implementation-plan`, `/subagent-task-execution`, `/code-review-request`, `/finishing-a-feature-branch`, `/security-review`, `/docs-lookup`
+  - *Foundation* — `/test-driven-development`, `/writing-implementation-plan`, `/subagent-task-execution`, `/code-review-request`, `/finishing-a-feature-branch`, `/security-review`, `/docs-lookup`, `/language-setup`
   - *Codegen & SQL* — `/generate-api`, `/generate-code`, `/remove-unused-class`, `/sql-analyze`, `/slow-sql-optimize`
 - **6 specialized subagents** — planner, java-reviewer, java-build-resolver, security-reviewer, sql-performance-reviewer, docs-lookup
 - **3 LSP servers** — jdtls (Java), Pyright (Python), and typescript-language-server (TS/JS) for go-to-definition, find-references, hover, and diagnostics
 - **MCP configuration** — pre-configured MCP server settings in `common/mcp/`
 - **Development standards** — DDD architecture spec and backend development standards in `spec/`
+- **Language selection** — replies, plans, reports, commit message descriptions, and code comments in English, French, or German
 
 ## Directory Structure
 
@@ -30,10 +33,10 @@ hhbp-claude-code/
 ├── agents/                     # Subagent definitions (planner, java-reviewer, security-reviewer, …)
 └── common/                     # shared content (vendored via git subtree from hhbp-common)
     ├── hooks/
-    │   └── hooks.json          # Claude Code hook registrations (PreToolUse / PostToolUse)
+    │   └── hooks.json          # Claude Code hook registrations (SessionStart / PreToolUse / PostToolUse)
     ├── skills/                 # Skill definitions (generate-code, generate-api, sql-analyze, …)
     ├── scripts/
-    │   └── hooks/              # Hook scripts (block-dangerous, git-workflow)
+    │   └── hooks/              # Hook scripts (language, block-dangerous, git-workflow) + locales/
     ├── mcp/
     │   └── mcp.json            # MCP server configuration (context7)
     ├── lsp/
@@ -48,6 +51,29 @@ hhbp-claude-code/
 
 /plugin install hhbp-claude-code@hhbp-claude-code
 ```
+
+## Language
+
+When you enable the plugin, Claude Code asks for a **Language**:
+
+| Code | Language |
+|---|---|
+| `en` | English (default) |
+| `fr` | Français |
+| `de` | Deutsch |
+
+Claude then replies, and writes plans, reviews, reports, commit message descriptions, and code
+comments, in that language. Code identifiers, file names, commands, the commit `<type>:` prefix,
+and workflow protocol tokens (`feature-state.json`, `REVIEW.md` verdicts) stay in English so the
+skills keep working. Blocked-command messages are translated too.
+
+To change it later: `/plugin` → **Installed** → **hhbp-claude-code** → **Configure options**, or
+`/config`. The new language applies from the next session.
+
+> **Requires Claude Code v2.1.271 or later** — the language picker uses `userConfig` `options`,
+> which older versions cannot load.
+
+Skills, agents, and specs are written in English; the language setting controls output only.
 
 ## Updating common
 
@@ -72,7 +98,7 @@ automatically while the skill is active — including at every phase transition 
 | Tier | Model | Skills |
 |---|---|---|
 | design | `claude-opus-5-5` | service-discovery, contract-first-design, writing-implementation-plan, cross-service-review, code-review-request, security-review |
-| impl | `claude-sonnet-5-5` | generate-api, generate-code, test-driven-development, parallel-implementation, subagent-task-execution, multi-service-integration-test, remove-unused-class, springboot-feature-bootstrap, feature-workspace-setup, multi-branch-merge, finishing-a-feature-branch, feature-cleanup, docs-lookup |
+| impl | `claude-sonnet-5-5` | generate-api, generate-code, test-driven-development, parallel-implementation, subagent-task-execution, multi-service-integration-test, remove-unused-class, springboot-feature-bootstrap, feature-workspace-setup, multi-branch-merge, finishing-a-feature-branch, feature-cleanup, docs-lookup, language-setup |
 
 `sql-analyze` and `slow-sql-optimize` keep the session model. A skill's model override lasts for
 the rest of the turn, and is ignored (the session model stays) if your organization's
@@ -86,6 +112,7 @@ session model.
 
 | Event | Matcher | Script | Purpose |
 |---|---|---|---|
+| SessionStart | `startup\|resume\|clear\|compact` | `language.js` | Tell Claude which language to use for output |
 | PreToolUse | `Bash` | `block-dangerous.js` | Block dangerous shell commands before execution |
 | PostToolUse | `Write\|Edit\|MultiEdit` | `git-workflow.js` | Enforce commit timing and format rules |
 

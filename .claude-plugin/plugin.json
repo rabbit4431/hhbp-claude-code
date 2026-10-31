@@ -11,5 +11,15 @@
   "skills": "./common/skills/",
   "hooks": "./common/hooks/hooks.json",
   "mcpServers": "./common/mcp/mcp.json",
-  "lspServers": "./common/lsp/lsp.json"
+  "lspServers": "./common/lsp/lsp.json",
+
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Language / Langue / Sprache",
+      "description": "Language for replies, plans, reports, commit message descriptions, and code comments: en (English), fr (Français), de (Deutsch)",
+      "options": ["en", "fr", "de"],
+      "default": "en"
+    }
+  }
 }
