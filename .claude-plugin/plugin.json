@@ -16,9 +16,9 @@
   "userConfig": {
     "language": {
       "type": "string",
-      "title": "Language / Langue / Sprache",
-      "description": "Language for replies, plans, reports, commit message descriptions, and code comments: en (English), fr (Français), de (Deutsch)",
-      "options": ["en", "fr", "de"],
+      "title": "Language / Langue / Sprache / Язык / 言語 / 语言 / 語言 / 언어",
+      "description": "Language for replies, plans, reports, commit message descriptions, and code comments: en (English), fr (Français), de (Deutsch), ru (Русский), ja (日本語), zh-CN (简体中文), zh-TW (繁體中文), ko (한국어)",
+      "options": ["en", "fr", "de", "ru", "ja", "zh-CN", "zh-TW", "ko"],
       "default": "en"
     }
   }

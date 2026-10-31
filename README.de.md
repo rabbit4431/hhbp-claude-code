@@ -1,6 +1,6 @@
 # hhbp-claude-code
 
-[English](README.md) · [Français](README.fr.md) · **Deutsch**
+[English](README.md) · [Français](README.fr.md) · **Deutsch** · [Русский](README.ru.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · [한국어](README.ko.md)
 
 Heshuo Harness Best Practices — Claude-Code-Plugin mit DDD-konformen Hooks, Agents und Skills für die Entwicklung von Java-Maven-Microservices.
 
@@ -24,7 +24,7 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 - **3 LSP-Server** — jdtls (Java), Pyright (Python) und typescript-language-server (TS/JS) für Go-to-Definition, Find-References, Hover und Diagnosen
 - **MCP-Konfiguration** — vorkonfigurierte MCP-Server-Einstellungen in `common/mcp/`
 - **Entwicklungsstandards** — DDD-Architekturspezifikation und Backend-Entwicklungsstandards in `spec/`
-- **Sprachauswahl** — Antworten, Pläne, Berichte, Commit-Beschreibungen und Codekommentare auf Englisch, Französisch oder Deutsch
+- **Sprachauswahl** — Antworten, Pläne, Berichte, Commit-Beschreibungen und Codekommentare in 8 Sprachen: Englisch, Französisch, Deutsch, Russisch, Japanisch, vereinfachtes Chinesisch, traditionelles Chinesisch und Koreanisch
 
 ## Verzeichnisstruktur
 
@@ -61,6 +61,11 @@ Wenn Sie das Plugin aktivieren, fragt Claude Code nach einer **Sprache** (*Langu
 | `en` | English (Standard) |
 | `fr` | Français |
 | `de` | Deutsch |
+| `ru` | Русский |
+| `ja` | 日本語 |
+| `zh-CN` | 简体中文 |
+| `zh-TW` | 繁體中文 |
+| `ko` | 한국어 |
 
 Claude antwortet dann in dieser Sprache und verfasst darin auch Pläne, Reviews, Berichte, Commit-Beschreibungen und Codekommentare. Code-Bezeichner, Dateinamen, Befehle, das Commit-Präfix `<type>:` und die Tokens des Workflow-Protokolls (`feature-state.json`, `REVIEW.md`-Urteile) bleiben auf Englisch, damit die Skills weiterhin funktionieren. Meldungen zu blockierten Befehlen werden ebenfalls übersetzt.
 

@@ -1,6 +1,6 @@
 # hhbp-claude-code
 
-**English** · [Français](README.fr.md) · [Deutsch](README.de.md)
+**English** · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · [한국어](README.ko.md)
 
 Heshuo Harness Best Practices — Claude Code plugin providing DDD-standard hooks, agents, and skills for Java Maven microservices development.
 
@@ -24,7 +24,7 @@ Repository: <https://github.com/rabbit4431/hhbp-claude-code>
 - **3 LSP servers** — jdtls (Java), Pyright (Python), and typescript-language-server (TS/JS) for go-to-definition, find-references, hover, and diagnostics
 - **MCP configuration** — pre-configured MCP server settings in `common/mcp/`
 - **Development standards** — DDD architecture spec and backend development standards in `spec/`
-- **Language selection** — replies, plans, reports, commit message descriptions, and code comments in English, French, or German
+- **Language selection** — replies, plans, reports, commit message descriptions, and code comments in 8 languages: English, French, German, Russian, Japanese, Simplified Chinese, Traditional Chinese, and Korean
 
 ## Directory Structure
 
@@ -61,6 +61,11 @@ When you enable the plugin, Claude Code asks for a **Language**:
 | `en` | English (default) |
 | `fr` | Français |
 | `de` | Deutsch |
+| `ru` | Русский |
+| `ja` | 日本語 |
+| `zh-CN` | 简体中文 |
+| `zh-TW` | 繁體中文 |
+| `ko` | 한국어 |
 
 Claude then replies, and writes plans, reviews, reports, commit message descriptions, and code
 comments, in that language. Code identifiers, file names, commands, the commit `<type>:` prefix,
