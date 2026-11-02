@@ -11,5 +11,15 @@
   "skills": "./common/skills/",
   "hooks": "./common/hooks/hooks.json",
   "mcpServers": "./common/mcp/mcp.json",
-  "lspServers": "./common/lsp/lsp.json"
+  "lspServers": "./common/lsp/lsp.json",
+
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Language / Langue / Sprache / Язык / 言語 / 语言 / 語言 / 언어",
+      "description": "Language for replies, plans, reports, commit message descriptions, and code comments: en (English), fr (Français), de (Deutsch), ru (Русский), ja (日本語), zh-CN (简体中文), zh-TW (繁體中文), ko (한국어)",
+      "options": ["en", "fr", "de", "ru", "ja", "zh-CN", "zh-TW", "ko"],
+      "default": "en"
+    }
+  }
 }
